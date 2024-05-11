@@ -15,6 +15,7 @@ namespace CSForums.Data
         public DbSet<Forum> Forums { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostReply> PostReplies { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

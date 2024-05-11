@@ -1,4 +1,5 @@
 using CSForums.Data;
+using CSForums.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,7 @@ namespace CSForums
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<IForum, ForumService>();
 
             var app = builder.Build();
 

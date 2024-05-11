@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CSForums.Data\CSForums.Data.csproj" />
+    <ProjectReference Include="..\CSForums.Service\CSForums.Service.csproj" />
   </ItemGroup>
 
 </Project>

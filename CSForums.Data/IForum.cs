@@ -1,5 +1,4 @@
 ﻿using CSForums.Data.Models;
-using System;
 
 namespace CSForums.Data
 {
