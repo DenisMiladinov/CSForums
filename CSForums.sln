@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSForums", "CSForums\CSForums.csproj", "{8C9256E5-0267-4391-95B7-B5F444833FBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSForums.Data", "CSForums.Data\CSForums.Data.csproj", "{10990C1D-DEB7-4F6A-84B3-3937C9D8EF6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSForums.Data", "CSForums.Data\CSForums.Data.csproj", "{10990C1D-DEB7-4F6A-84B3-3937C9D8EF6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSForums.Service", "CSForums.Service\CSForums.Service.csproj", "{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{10990C1D-DEB7-4F6A-84B3-3937C9D8EF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10990C1D-DEB7-4F6A-84B3-3937C9D8EF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10990C1D-DEB7-4F6A-84B3-3937C9D8EF6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
