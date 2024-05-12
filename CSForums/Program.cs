@@ -20,6 +20,7 @@ namespace CSForums
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IForum, ForumService>();
+            builder.Services.AddScoped<IPost, PostService>();
 
             var app = builder.Build();
 

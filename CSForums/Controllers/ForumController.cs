@@ -36,10 +36,10 @@ namespace CSForums.Controllers
 
         public IActionResult Topic(int id)
         {
-            var forum = _forumService.GetById(id);
-            var posts = forum.Posts;
+            Forum? forum = _forumService.GetById(id);
+            IEnumerable<Post> posts = forum.Posts;
 
-            var postListings = posts.Select(post => new PostListingModel
+            IEnumerable<PostListingModel> postListings = posts.Select(post => new PostListingModel
             {
                 Id = post.Id,
                 AuthorId = post.User.Id,
