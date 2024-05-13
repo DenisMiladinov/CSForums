@@ -44,13 +44,14 @@ namespace CSForums.Controllers
                 Id = post.Id,
                 AuthorId = post.User.Id,
                 AuthorRating = post.User.Rating,
+                AuthorName = post.User.UserName,
                 Title = post.Title,
                 DatePosted = post.Created.ToString(),
                 RepliesCount = post.Replies.Count(),
                 Forum = BuildForumListing(post)
             });
 
-            var model = new ForumTopicModel
+            ForumTopicModel model = new ForumTopicModel
             {
                 Posts = postListings,
                 Forum = BuildForumListing(forum)
