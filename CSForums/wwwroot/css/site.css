@@ -1,3 +1,27 @@
+body {
+    padding: 40px 0 20px 0;
+    background-color: #EEE;
+    background-image: url("/images/theme/bg-01.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.navbar {
+    box-shadow: 0 5px 5px 2px #00000022;   
+}
+
+.navlogo {
+    background-image: url("/images/app-logo-s.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-right: 16px;
+    width: 150px;
+    background-position: center;
+    margin-right: 12px;
+}
+
 html {
   font-size: 14px;
 }
