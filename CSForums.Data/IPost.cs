@@ -8,6 +8,7 @@ namespace CSForums.Data
         IEnumerable<Post> GetAll();
         IEnumerable<Post> GetFilteredPosts(string searchQuery);
         IEnumerable<Post> GetPostsByForum(int id);
+        IEnumerable<Post> GetLatestPost(int n);
 
         Task Add(Post post);
         Task Delete(int id);

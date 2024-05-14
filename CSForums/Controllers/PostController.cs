@@ -14,6 +14,7 @@ namespace CSForums.Controllers
         private readonly IForum _forumService;
 
         private static UserManager<ApplicationUser> _userManager;
+
         public PostController(IPost postService, IForum forumService, UserManager<ApplicationUser> userManager)
         {
             _postService = postService;
@@ -37,7 +38,6 @@ namespace CSForums.Controllers
                 Created = post.Created,
                 PostContent = post.Content,
                 Replies = replies,
-
             };
 
             return View(model);
