@@ -38,6 +38,8 @@ namespace CSForums.Controllers
                 Created = post.Created,
                 PostContent = post.Content,
                 Replies = replies,
+                ForumId = post.Forum.Id,
+                ForumName = post.Forum.Title
             };
 
             return View(model);
