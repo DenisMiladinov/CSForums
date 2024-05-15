@@ -21,9 +21,4 @@
     <ProjectReference Include="..\CSForums.Service\CSForums.Service.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\forum\" />
-    <Folder Include="wwwroot\images\users\" />
-  </ItemGroup>
-
 </Project>

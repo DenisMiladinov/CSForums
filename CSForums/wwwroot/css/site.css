@@ -1,7 +1,7 @@
 body {
     padding: 40px 0 20px 0;
     background-color: #EEE;
-    background-image: url("/images/theme/bg-03.png");
+    background-image: url("/images/theme/bg-01.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -101,8 +101,8 @@ body {
     box-shadow: 0 5px 4px -6px #000;
 }
 
-.fronPageContent{
-    background-color: rgba(255, 255, 255, 0.9);
+.frontPageContent {
+    background-color: rgba(200, 200, 200, 0.9);
     padding: 16px;
 }
 
@@ -144,8 +144,8 @@ body {
     background-color: #ddd;
 }
 
-#forumIndexTable td{
-    background-color: rgba(255, 255, 255, 0.9);
+#forumIndexTable td {
+    background-color: rgba(200, 200, 200, 0.9);
 }
 
 #forumIndexTable tr:hover{
@@ -173,7 +173,7 @@ body {
     font-family: 'Roboto';
 }
 
-.forumLogo{
+.forumLogo {
     border-radius: 3px;
     float: left;
     margin-right: 20px;
@@ -182,7 +182,6 @@ body {
     background-color: #ddd;
     border: 1px solid #555;
     background-size: 100%;
-
 }
 
 .forumPostCount{
