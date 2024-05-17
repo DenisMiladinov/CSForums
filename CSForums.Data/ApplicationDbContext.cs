@@ -11,7 +11,7 @@ namespace CSForums.Data
         {
         }
 
-        public override DbSet<ApplicationUser> Users { get; set; }
+        public override DbSet<ApplicationUser> ApplicatuonUsers { get; set; }
         public DbSet<Forum> Forums { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostReply> PostReplies { get; set; }
