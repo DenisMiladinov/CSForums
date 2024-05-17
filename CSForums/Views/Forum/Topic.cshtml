@@ -13,7 +13,7 @@
             <form asp-controller="Forum" asp-action="Search" method="Post">
                 <div class="searchForm">
                     <input asp-for="SearchQuery" type="text" placeholder="Search..." class="searchBar" onfocus="clearThis(this)">
-                    <button type="submit" class="btn buttonSearch">
+                    <button type="submit" class="btn btn-forumSearch">
                         <i class="material-icons">search</i>
                     </button>
                 </div>
@@ -71,22 +71,22 @@
                             </td>
                         </tr>
                     }
-                    else
-                    {
-                        <div class="noPosts">
-                            <i class="material-icons align-content-md-around 72">question_answear</i>
-                            <h3>
-                                It looks like there are no posts to be found.
-                                Why not
-                                <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id">
-                                    <span>Post</span>
-                                </a>
-                                something?
-                            </h3>
-                        </div>
-                    }
                 </tbody>
             </table>
+        }
+        else
+        {
+            <div class="noPosts">
+                <i class="material-icons align-content-md-around 72">question_answear</i>
+                <h3>
+                    It looks like there are no posts to be found.
+                    Why not
+                    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id">
+                        <span>Post</span>
+                    </a>
+                    something?
+                </h3>
+            </div>
         }
     </div>
 </div>

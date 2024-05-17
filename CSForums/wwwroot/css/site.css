@@ -1,7 +1,7 @@
 body {
     padding: 40px 0 20px 0;
     background-color: #EEE;
-    background-image: url("/images/theme/bg-01.png");
+    background-image: url("/images/theme/bg-03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -113,6 +113,21 @@ body {
     margin: 4px 0 16px 0;
 }
 
+.searchBar{
+    padding: 3px 5px 2px 12px;
+    margin: 8px;
+    background-color: #333;
+    width: 10%;
+    transition: ease .3s;
+    border: none;
+}
+
+.searchBar:focus{
+    color: black;
+    width: 60%;
+    background-color: #fff;
+}
+
 .postTitle{
     color: #888;
     font-family: 'Roboto';
@@ -142,6 +157,74 @@ body {
     height: 40px;
     width: 40px;
     background-color: #ddd;
+}
+
+/*.btn-back{
+    background-color: #555;
+    color: #fff !important;
+    transition: ease-in 0.1s;
+    border-radius: 0px !important;
+}
+
+.btn-back:hover{
+    transition: ease-in 0.1s;
+    background-color: #1E88E5 !important;
+}
+
+.btn-newReply{
+    background-color: #5C6BC0 !important;
+    color: #fff !important;
+    transition: ease-in 0.1s;
+    border-radius: 0px !important;
+}
+
+.btn-newReply:hover{
+    background-color: #9FA8DA !important;
+    transition: ease-in 0.1s;
+}
+
+.btn-file{
+    color: white;
+    width: 100%;
+    background-color: #4FC3F7;
+    transition: ease 0.3s;
+}
+
+.btn-file:hover{
+    background-color: #039BE5;
+    transition: ease 0.3s;
+}
+
+.btn-newPost{
+    background-color: white !important;
+    color: #fff !important;
+    transition: ease-in 0.1s;
+    border-radius: 0px !important;
+}
+
+.btn-newPost:hover{
+    transition: ease-in 0.1s;
+    background-color: white !important;
+    color: #fff !important;
+}*/
+
+.btn-submitPost{
+    background-color: #00695C !important;
+    color: #fff !important;
+    transition: ease-in 0.1s;
+    border-radius: 0px !important;
+}
+
+.btn-submitPost:hover{
+    transition: ease-in 0.1s;
+    background-color: white;
+}
+
+.btn-forumSearch {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
 }
 
 #forumIndexTable td {

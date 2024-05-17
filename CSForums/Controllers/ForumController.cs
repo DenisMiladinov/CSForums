@@ -2,7 +2,9 @@
 using CSForums.Data.Models;
 using CSForums.Models.Forum;
 using CSForums.Models.Post;
+using CSForums.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 
 namespace CSForums.Controllers
 {
@@ -11,9 +13,10 @@ namespace CSForums.Controllers
         private readonly IForum _forumService;
         private readonly IPost _postService;
 
-        public ForumController(IForum forumService)
+        public ForumController(IForum forumService, IPost postService)
         {
-            _forumService = forumService; 
+            _forumService = forumService;
+            _postService = postService;
         }
 
         public IActionResult Index()
@@ -34,10 +37,12 @@ namespace CSForums.Controllers
             return View(model);
         }
 
-        public IActionResult Topic(int id)
+        public IActionResult Topic(int id, string searchQuery)
         {
             Forum? forum = _forumService.GetById(id);
-            IEnumerable<Post> posts = forum.Posts;
+            IEnumerable<Post> posts = new List<Post>();
+
+            posts = _postService.GetFilteredPosts(forum, searchQuery).ToList();
 
             IEnumerable<PostListingModel> postListings = posts.Select(post => new PostListingModel
             {
@@ -58,6 +63,12 @@ namespace CSForums.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Search(int id, string searchQuery)
+        {
+            return RedirectToAction("Topic", new {id, searchQuery});
         }
 
         private ForumListingModel BuildForumListing(Post post)
