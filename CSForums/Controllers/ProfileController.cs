@@ -1,4 +1,6 @@
-﻿using CSForums.Data.Models;
+﻿using CSForums.Data;
+using CSForums.Data.Models;
+using CSForums.Models.ApplicationUser;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,7 +13,7 @@ namespace CSForums.Controllers
         private readonly IUpload _uploadService;
 
 
-        public ProfileController(UserManager<ApplicationUser> userManager, IApplicatonUser userService, IUpload uploadService)
+        public ProfileController(UserManager<ApplicationUser> userManager, IApplicationUser userService, IUpload uploadService)
         {
             _userManager = userManager;
             _userService = userService;
@@ -20,7 +22,21 @@ namespace CSForums.Controllers
 
         public IActionResult Detail(string id)
         {
-            return View();
+            var user = _userService.GetById(id);
+            var userRoles = _userManager.GetRolesAsync(user).Result;
+
+            var model = new ProfileModel()
+            {
+                UserId = user.Id,
+                UserName = user.UserName,
+                UserRating = user.Rating.ToString(),
+                Email = user.Email,
+                ProfileImageUrl = user.ProfileImageUrl,
+                MemberSince = user.MemberSince,
+                IsAdmin = userRoles.Contains("Admin")
+            };
+
+            return View(model);
         }
     }
 }
