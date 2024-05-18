@@ -14,7 +14,7 @@ namespace CSForums.Service
 
         public IEnumerable<ApplicationUser> GetAll()
         {
-            return _context.ApplicatuonUsers;
+            return _context.ApplicationUsers;
         }
 
         public ApplicationUser GetById(string id)

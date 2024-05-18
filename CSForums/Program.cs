@@ -26,6 +26,8 @@ namespace CSForums
             builder.Services.AddScoped<IForum, ForumService>();
             builder.Services.AddScoped<IPost, PostService>();
 
+            builder.Services.AddTransient<DataSeeder>();
+
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
