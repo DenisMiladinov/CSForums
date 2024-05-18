@@ -3,7 +3,7 @@ using CSForums.Data.Models;
 
 namespace CSForums.Service
 {
-    class ApplicationUserService : IApplicationUser
+    public class ApplicationUserService : IApplicationUser
     {
         private readonly ApplicationDbContext _context;
 

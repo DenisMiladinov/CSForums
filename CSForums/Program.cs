@@ -25,6 +25,8 @@ namespace CSForums
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IForum, ForumService>();
             builder.Services.AddScoped<IPost, PostService>();
+            builder.Services.AddScoped<IUpload, UploadService>();
+            builder.Services.AddScoped<IApplicationUser, ApplicationUserService>();
 
             builder.Services.AddTransient<DataSeeder>();
 

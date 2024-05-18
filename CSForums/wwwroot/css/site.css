@@ -1,7 +1,7 @@
 body {
     padding: 40px 0 20px 0;
     background-color: #EEE;
-    background-image: url("/images/theme/bg-03.png");
+    background-image: url("/images/theme/bg-01.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -113,6 +113,7 @@ body {
     margin: 4px 0 16px 0;
 }
 
+/*Search*/
 .searchBar{
     padding: 3px 5px 2px 12px;
     margin: 8px;
@@ -128,6 +129,7 @@ body {
     background-color: #fff;
 }
 
+/*Posts*/
 .postTitle{
     color: #888;
     font-family: 'Roboto';
@@ -159,7 +161,53 @@ body {
     background-color: #ddd;
 }
 
-/*.btn-back{
+.postAuthorImage{
+    height: 80px;
+    width: 80px;
+    background-size: 100%;
+}
+
+.postAuthorContainer {
+    padding: 12px;
+    color: #444;
+    font-family: 'Roboto';
+    width: 190px;
+}
+
+.postIndexTitle{
+    font-size: 1.4em;
+}
+
+.postContentContainer{
+    font-family: 'Roboto';
+    color: #222;
+    padding: 22px;
+    border-left: 1px solid #ddd;
+}
+
+.postAuthorRating{
+    font-size: 0.9em;
+    color: #159;
+    font-family: 'Roboto-Mono';
+}
+
+#postIndexContent{
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+.postHeader{
+    background-color: #212121;
+    padding: 8px 0px 24px 24px;
+}
+
+#headingBtn{
+    float: right;
+    margin-right: 20px;
+}
+
+/*Custom Buttons*/
+.btn-back{
     background-color: #555;
     color: #fff !important;
     transition: ease-in 0.1s;
@@ -206,7 +254,7 @@ body {
     transition: ease-in 0.1s;
     background-color: white !important;
     color: #fff !important;
-}*/
+}
 
 .btn-submitPost{
     background-color: #00695C !important;
@@ -220,6 +268,7 @@ body {
     background-color: white;
 }
 
+/*Forums*/
 .btn-forumSearch {
     background: none !important;
     border: none;
