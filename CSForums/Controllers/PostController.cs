@@ -13,19 +13,23 @@ namespace CSForums.Controllers
         private readonly IPost _postService;
         private readonly IForum _forumService;
 
+        private readonly ILogger<PostController> _logger;
         private static UserManager<ApplicationUser> _userManager;
 
-        public PostController(IPost postService, IForum forumService, UserManager<ApplicationUser> userManager)
+        public PostController(IPost postService, IForum forumService, UserManager<ApplicationUser> userManager, ILogger<PostController> logger)
         {
             _postService = postService;
             _forumService = forumService;
             _userManager = userManager;
+            _logger = logger;
         }
 
         public IActionResult Index(int id)
         {
             var post = _postService.GetById(id);
             var replies = BuildPostReplies(post.Replies);
+
+            _logger.LogInformation(post.User.ProfileImageUrl);
 
             PostIndexModel model = new PostIndexModel
             {

@@ -7,14 +7,14 @@
             @if(Context.User.Identity.IsAuthenticated)
             {
                 <span id="headingBtn">
-                    <a asp-controller="Post" asp-action="Create" asp-roude-id="@Model.Forum.Id" class="btn btn-newPost">Create Post</a>
+                    <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id" class="btn btn-newPost">Create Post</a>
                     </span>
             }
             <form asp-controller="Forum" asp-action="Search" method="Post">
                 <div class="searchForm">
                     <input asp-for="SearchQuery" type="text" placeholder="Search..." class="searchBar" onfocus="clearThis(this)">
                     <button type="submit" class="btn btn-forumSearch">
-                        <i class="material-icons">search</i>
+                        <i class="material-symbols-outlined">search</i>
                     </button>
                 </div>
                 <input asp-for="Forum.Id" name="id" type="hidden" />
@@ -27,7 +27,7 @@
             {
                 <p>
                     <span>You must be a
-                        <a asp-controller="Account" asp-action="Register">
+                        <a asp-area="Identity" asp-page="/Account/Register">
                             registered member
                         </a>
                         to create a new post.

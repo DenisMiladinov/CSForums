@@ -12,10 +12,12 @@ namespace CSForums.Controllers
     public class HomeController : Controller
     {
         private readonly IPost _postService;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(IPost postService)
+        public HomeController(IPost postService, ILogger<HomeController> logger)
         {
             _postService = postService;
+            _logger = logger;
         }
 
         public IActionResult Index()

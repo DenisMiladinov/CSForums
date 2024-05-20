@@ -1,7 +1,8 @@
 body {
     padding: 40px 0 20px 0;
     background-color: #EEE;
-    background-image: url("/images/theme/bg-01.png");
+    /*background-image: url("/images/users/user1.png");*/
+    background-image: url("/images/theme/bg-03.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -168,7 +169,6 @@ body {
 }
 
 .postAuthorContainer {
-    padding: 12px;
     color: #444;
     font-family: 'Roboto';
     width: 190px;
@@ -243,8 +243,8 @@ body {
     transition: ease 0.3s;
 }
 
-.btn-newPost{
-    background-color: white !important;
+.btn-newPost {
+    background-color: rgba(0,0,0,0.9) !important;
     color: #fff !important;
     transition: ease-in 0.1s;
     border-radius: 0px !important;
@@ -253,7 +253,7 @@ body {
 .btn-newPost:hover{
     transition: ease-in 0.1s;
     background-color: white !important;
-    color: #fff !important;
+    color: black !important;
 }
 
 .btn-submitPost{
@@ -266,6 +266,10 @@ body {
 .btn-submitPost:hover{
     transition: ease-in 0.1s;
     background-color: white;
+}
+
+.btn-forumSearch{
+    color: #fff;
 }
 
 /*Forums*/
