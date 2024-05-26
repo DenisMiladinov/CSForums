@@ -8,7 +8,7 @@ namespace CSForums
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -55,6 +55,12 @@ namespace CSForums
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            using (var scope = app.Services.CreateAsyncScope()) 
+            {
+                DataSeeder seeder = scope.ServiceProvider.GetRequiredService<DataSeeder>();
+                await seeder.SeedSuperUser();
+            }
 
             app.UseAuthentication();
             app.UseAuthorization();

@@ -33,18 +33,18 @@
                             <li><a class="nav-link text-dark" asp-controller="Forum" asp-action="Index">Forums</a></li>
                             @if(SignInManager.IsSignedIn(User))
                             {
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle nav-link text-dark" font-size="1" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li role="separator" class="divider"></li>
-                                    <li class="dropdown-header">Profile</li>
-                                    <li><a asp-controller="Profile" asp-action="Detail">My Profile</a></li>
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="dropdown-toggle nav-link text-dark" font-size="1" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li role="separator" class="dropdown-divider"></li>
+                                        <li class="dropdown-header">Profile</li>
+                                        <li><a asp-controller="Profile" asp-action="Detail" class="dropdown-item">My Profile</a></li>
                                         @if (User.IsInRole("Admin"))
                                         {
-                                            <li role="separator" class="divider"></li>
+                                            <li role="separator" class="dropdown-divider"></li>
                                             <li class="dropdown-header">Admin</li>
-                                            <li><a asp-controller="Forum" asp-action="Create">Create Forum</a></li>
-                                            <li><a asp-controller="Profile" asp-action="Index">View Users</a></li>
+                                            <li><a asp-controller="Forum" asp-action="Create" class="dropdown-item">Create Forum</a></li>
+                                            <li><a asp-controller="Profile" asp-action="Index" class="dropdown-item">View Users</a></li>
                                         }
                                     </ul>
                                 </li>
