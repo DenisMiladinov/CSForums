@@ -3,6 +3,7 @@ using CSForums.Data.Models;
 using CSForums.Models.ApplicationUser;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CSForums.Controllers
 {
@@ -37,6 +38,13 @@ namespace CSForums.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadProfileImage(IFormFile file)
+        {
+            var userId = _userManager.GetUserId(User);
+
         }
     }
 }
