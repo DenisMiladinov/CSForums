@@ -12,16 +12,18 @@ namespace CSForums.Controllers
     {
         private readonly IPost _postService;
         private readonly IForum _forumService;
+        private readonly IApplicationUser _userService;
 
         private readonly ILogger<PostController> _logger;
         private static UserManager<ApplicationUser> _userManager;
 
-        public PostController(IPost postService, IForum forumService, UserManager<ApplicationUser> userManager, ILogger<PostController> logger)
+        public PostController(IPost postService, IForum forumService, UserManager<ApplicationUser> userManager, ILogger<PostController> logger, IApplicationUser userService)
         {
             _postService = postService;
             _forumService = forumService;
             _userManager = userManager;
             _logger = logger;
+            _userService = userService;
         }
 
         public IActionResult Index(int id)
@@ -72,7 +74,8 @@ namespace CSForums.Controllers
             var user = _userManager.FindByIdAsync(userId).Result;
             var post = BuildPost(model, user);
 
-            _postService.Add(post).Wait();
+            await _postService.Add(post);
+            await _userService.UpdateUserRating(userId, typeof(Post));
 
             return RedirectToAction("Index", "Post", new { id = post.Id });
         }
