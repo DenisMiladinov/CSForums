@@ -40,11 +40,12 @@ namespace CSForums.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public async Task<IActionResult> UploadProfileImage(IFormFile file)
         {
             var userId = _userManager.GetUserId(User);
 
-        }
+
+        }*/
     }
 }
