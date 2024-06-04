@@ -20,13 +20,6 @@
                     <input asp-for="Description" class="form-control" placeholder="Write a brief description of the forum topic" />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
-                <div id="upload">
-                    <label>Upload Forum Image</label>
-                    <br />
-                    <label class="btn btn-defult btn-file">
-                        Browse <input asp-for="ImageUpload" typeof="file" style="display: none" />
-                    </label>
-                </div>
                 <button type="submit" id="newFormBtn" class="btn btn-submitPost">Create Forum</button>
             </form>
         </div>

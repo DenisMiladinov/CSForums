@@ -39,13 +39,25 @@ namespace CSForums.Controllers
 
             return View(model);
         }
-
-        /*[HttpPost]
-        public async Task<IActionResult> UploadProfileImage(IFormFile file)
+        public IActionResult Index()
         {
-            var userId = _userManager.GetUserId(User);
+            var profile = _userService.GetAll()
+                .OrderByDescending(user => user.Rating)
+                .Select(u => new ProfileModel()
+                {
+                    Email = u.Email,
+                    UserName = u.UserName,
+                    ProfileImageUrl = u.ProfileImageUrl,
+                    UserRating = u.Rating.ToString(),
+                    MemberSince = u.MemberSince,
+                });
 
+            /*var model = new ProfileListModel
+            {
+                Profiles = profiles
+            };*/
 
-        }*/
+            return View();
+        }
     }
 }

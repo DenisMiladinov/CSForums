@@ -312,12 +312,12 @@ body {
 .forumLogo {
     border-radius: 3px;
     float: left;
+    background-size: 100%;
     margin-right: 20px;
     height: 40px;
     width: 40px;
     background-color: #ddd;
     border: 1px solid #555;
-    background-size: 100%;
 }
 
 .forumPostCount{
@@ -349,6 +349,13 @@ body {
     background-color: white;
 }
 
+#userProfileImage {
+    display: inline-block;
+    background-size: 100%;
+    width: 200px;
+    height: 200px;
+    background-color: #ddd;
+}
 #userEmailLabel, #userBioLabel, #userCreatedLabel, #userRating, #userActiveLabel{
     display: block;
     color: #444;

@@ -84,13 +84,7 @@ namespace CSForums.Controllers
         [HttpPost]
         public async Task<IActionResult> AddForum(AddForumModel model)
         {
-            var imageUri = "/images/users/default.png";
-
-            /*if(model.ImageUpload != null)
-            {
-                var blockBlob = UploadForumImage(model.ImageUpload);
-                imageUri = blockBlob.Uri.AbsoluteUri;
-            }*/
+            var imageUri = "/images/forum/csgologo1.png";
 
             var forum = new Forum
             {
