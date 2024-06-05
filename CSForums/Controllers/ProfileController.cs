@@ -41,7 +41,7 @@ namespace CSForums.Controllers
         }
         public IActionResult Index()
         {
-            var profile = _userService.GetAll()
+            var profiles = _userService.GetAll()
                 .OrderByDescending(user => user.Rating)
                 .Select(u => new ProfileModel()
                 {
@@ -52,10 +52,10 @@ namespace CSForums.Controllers
                     MemberSince = u.MemberSince,
                 });
 
-            /*var model = new ProfileListModel
+            var model = new ProfileListModel
             {
                 Profiles = profiles
-            };*/
+            };
 
             return View();
         }
