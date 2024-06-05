@@ -26,6 +26,17 @@ namespace CSForums.Controllers
             return View(model);
         }
 
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
         private HomeIndexModel BuildHomeIndexModel()
         {
             var lastestPost = _postService.GetLatestPost(10);
@@ -59,17 +70,6 @@ namespace CSForums.Controllers
                 Name = forum.Title,
                 ImageUrl = forum.ImageUrl
             };
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

@@ -1,12 +1,14 @@
 ﻿using CSForums.Data;
 using CSForums.Data.Models;
 using CSForums.Models.ApplicationUser;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace CSForums.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -39,6 +41,8 @@ namespace CSForums.Controllers
 
             return View(model);
         }
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var profiles = _userService.GetAll()

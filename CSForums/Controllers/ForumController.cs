@@ -3,6 +3,7 @@ using CSForums.Data.Models;
 using CSForums.Models.Forum;
 using CSForums.Models.Post;
 using CSForums.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 
@@ -79,6 +80,7 @@ namespace CSForums.Controllers
             return RedirectToAction("Topic", new {id, searchQuery});
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             var model = new AddForumModel();
@@ -86,6 +88,7 @@ namespace CSForums.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddForum(AddForumModel model)
         {
             var imageUri = "/images/forum/csgologo1.png";

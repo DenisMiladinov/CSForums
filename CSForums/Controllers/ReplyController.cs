@@ -1,11 +1,13 @@
 ﻿using CSForums.Data;
 using CSForums.Data.Models;
 using CSForums.Models.Reply;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSForums.Controllers
 {
+    [Authorize]
     public class ReplyController : Controller
     {
         private readonly IPost _postService;
