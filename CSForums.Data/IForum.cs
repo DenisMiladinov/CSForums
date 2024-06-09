@@ -12,6 +12,5 @@ namespace CSForums.Data
         Task UpdateForumTitle(int forumId, string newTitle);
         Task UpdateForumDescription(int forumId, string newDescription);
         IEnumerable<ApplicationUser> GetActiveUsers(int id);
-        bool HasRecentPosts(int id);
     }
 }

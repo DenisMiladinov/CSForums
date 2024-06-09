@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSForums", "CSForums\CSForu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSForums.Data", "CSForums.Data\CSForums.Data.csproj", "{10990C1D-DEB7-4F6A-84B3-3937C9D8EF6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSForums.Service", "CSForums.Service\CSForums.Service.csproj", "{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSForums.Service", "CSForums.Service\CSForums.Service.csproj", "{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSForums.Tests", "CSForums.Tests\CSForums.Tests.csproj", "{A1BB2A01-E49E-4D83-B280-B805E5B1EFFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28F4CEDC-1102-41AD-A350-BDA0C5685CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1BB2A01-E49E-4D83-B280-B805E5B1EFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1BB2A01-E49E-4D83-B280-B805E5B1EFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1BB2A01-E49E-4D83-B280-B805E5B1EFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1BB2A01-E49E-4D83-B280-B805E5B1EFFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

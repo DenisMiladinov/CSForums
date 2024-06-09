@@ -8,7 +8,7 @@
             {
                 <span id="headingBtn">
                     <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id" class="btn btn-newPost">Create Post</a>
-                    </span>
+                </span>
             }
             <form asp-controller="Forum" asp-action="Search" method="Post">
                 <div class="searchForm">
@@ -47,12 +47,12 @@
                             <td>
                                 <div class="postData">
                                     <div class="postTitle">
-                                        <a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">@post.Title</a>
+                                        <a class="text-decoration-none text-dark" asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">@post.Title</a>
                                     </div>
                                     <div class="forumSubTitle">
                                         <div>
                                             <span class="postAuthor">
-                                                <a asp-controller="Profile" asp-action="Detail" asp-route-id="@post.AuthorId">
+                                                <a class="text-decoration-none text-dark" asp-controller="Profile" asp-action="Detail" asp-route-id="@post.AuthorId">
                                                     @post.AuthorName
                                                 </a>
                                             </span>
@@ -77,7 +77,7 @@
         else
         {
             <div class="noPosts">
-                <i class="material-icons align-content-md-around 72">question_answear</i>
+                <i class="material-symbols-outlined align-content-md-around 72">forum</i>
                 <h3>
                     It looks like there are no posts to be found.
                     Why not

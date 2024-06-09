@@ -61,7 +61,7 @@ namespace CSForums.Controllers
                 Profiles = profiles
             };
 
-            return View();
+            return View(model);
         }
     }
 }

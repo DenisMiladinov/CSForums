@@ -67,12 +67,5 @@ namespace CSForums.Service
 
             return new List<ApplicationUser>();
         }
-
-        public bool HasRecentPosts(int id)
-        {
-            const int hoursAgo = 12;
-            var window = DateTime.Now.AddHours(hoursAgo);
-            return GetById(id).Posts.Any(post => post.Created > window);
-        }
     }
 }

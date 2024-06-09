@@ -34,8 +34,7 @@ namespace CSForums.Controllers
                     Description = forum.Description,
                     NumberOfPosts = forum.Posts?.Count() ?? 0,
                     NumberOfUsers = _forumService.GetActiveUsers(forum.Id).Count(),
-                    ImageUrl = forum.ImageUrl,
-                    HasRecentPost = _forumService.HasRecentPosts(forum.Id)
+                    ImageUrl = forum.ImageUrl
             });
 
             ForumIndexModel model = new ForumIndexModel
