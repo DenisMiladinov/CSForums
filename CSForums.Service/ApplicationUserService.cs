@@ -1,15 +1,19 @@
 ﻿using CSForums.Data;
 using CSForums.Data.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace CSForums.Service
 {
     public class ApplicationUserService : IApplicationUser
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ApplicationUserService(ApplicationDbContext context)
+        public ApplicationUserService(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IEnumerable<ApplicationUser> GetAll()
@@ -17,7 +21,7 @@ namespace CSForums.Service
             return _context.ApplicationUsers;
         }
 
-        public ApplicationUser GetById(string id)
+        public ApplicationUser? GetById(string id)
         {
             return GetAll().FirstOrDefault(user => user.Id == id);
         }
@@ -48,6 +52,21 @@ namespace CSForums.Service
             user.ProfileImageUrl = uri.AbsoluteUri;
             _context.Update(user);
             await _context.SaveChangesAsync();
+        }
+
+        public Task<bool> ExistsAsync(string id)
+        {
+            return _context.ApplicationUsers.AnyAsync(user => user.Id == id);
+        }
+
+        public async Task<bool> IsAdminAsync(string id)
+        {
+            ApplicationUser? user = await _context.ApplicationUsers.FirstOrDefaultAsync(user => user.Id == id);
+
+            if (user == null)
+                return false;
+
+            return await _userManager.IsInRoleAsync(user, "Admin");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CSForums.Data;
 using CSForums.Data.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace CSForums.Service
@@ -7,10 +8,14 @@ namespace CSForums.Service
     public class PostService : IPost
     {
         private readonly ApplicationDbContext _context;
+        private readonly IApplicationUser _user;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public PostService(ApplicationDbContext context)
+        public PostService(ApplicationDbContext context, IApplicationUser user, UserManager<ApplicationUser> userManager)
         { 
             _context = context;
+            _user = user;
+            _userManager = userManager;
         }
 
         public async Task Add(Post post)
@@ -25,14 +30,49 @@ namespace CSForums.Service
             await _context.SaveChangesAsync();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id, string userId)
         {
-            throw new NotImplementedException();
+            if (!await _user.ExistsAsync(userId))
+                throw new ArgumentOutOfRangeException();
+
+            bool isAdmin = await _user.IsAdminAsync(userId);
+            Post? post = await _context.Posts.FirstOrDefaultAsync(x => x.Id == id && (x.User.Id == userId || isAdmin));
+
+            if(post == null)
+                throw new ArgumentOutOfRangeException();
+
+            _context.Posts.Remove(post);
+            await _context.SaveChangesAsync();
         }
 
-        public Task EdinPostContent(int id, string newContent)
+        public async Task DeleteReply(int replyId, string userId)
         {
-            throw new NotImplementedException();
+            if (!await _user.ExistsAsync(userId))
+                throw new ArgumentOutOfRangeException();
+
+            bool isAdmin = await _user.IsAdminAsync(userId);
+            PostReply? postReply = await _context.PostReplies.FirstOrDefaultAsync(x => x.Id == replyId && (x.User.Id == userId || isAdmin ));
+
+            if(postReply == null)
+                throw new ArgumentOutOfRangeException();
+
+            _context.PostReplies.Remove(postReply);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task EditPostContent(int id, string userId, string title, string newContent)
+        {
+            if(!await  _user.ExistsAsync(userId)) throw new ArgumentOutOfRangeException();
+
+            bool isAdmin = await _user.IsAdminAsync(userId);
+            Post? post = await _context.Posts.FirstOrDefaultAsync(x => x.Id == id && (x.User.Id == userId || isAdmin));
+
+            if(post == null)
+                throw new ArgumentOutOfRangeException();
+
+            post.Title = title;
+            post.Content = newContent;
+            await _context.SaveChangesAsync();
         }
 
         public IEnumerable<Post> GetAll()

@@ -115,5 +115,47 @@ namespace CSForums.Controllers
         {
             return _userManager.GetRolesAsync(user).Result.Contains("Admin");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePost(int postId) 
+        {
+            try 
+            {
+                await _postService.Delete(postId, _userManager.GetUserId(User));
+                return RedirectToAction("Index", "Forum");
+            }
+            catch (ArgumentOutOfRangeException ex) 
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet, Authorize]
+        public async Task<IActionResult> Edit(int postId)
+        {
+            Post post = _postService.GetById(postId);
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            return View(new EditPostModel
+            {
+                PostId = postId,
+                Title = post.Title,
+                Content = post.Content,
+                AuthorName = user.UserName
+            });
+        }
+
+        [HttpPost, Authorize]
+        public async Task<IActionResult> Edit(EditPostModel editPostModel)
+        {
+            try 
+            {
+                await _postService.EditPostContent(editPostModel.PostId, _userManager.GetUserId(User), editPostModel.Title, editPostModel.Content);
+                return RedirectToAction("Index", "Post", new { id = editPostModel.PostId });
+            }
+            catch(ArgumentOutOfRangeException ex) 
+            {
+                return NotFound();
+            }
+        }
     }
 }

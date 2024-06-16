@@ -12,8 +12,9 @@ namespace CSForums.Data
         IEnumerable<Post> GetLatestPost(int n);
 
         Task Add(Post post);
-        Task Delete(int id);
-        Task EdinPostContent(int id, string newContent);
+        Task Delete(int id, string userId);
+        Task DeleteReply(int replyId, string userId);
+        Task EditPostContent(int id, string userId, string title, string newContent);
         Task AddReply(PostReply reply);
     }
 }

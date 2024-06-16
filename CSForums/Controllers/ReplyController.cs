@@ -74,5 +74,19 @@ namespace CSForums.Controllers
                 User = user
             };
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteReply(int postId, int replyId) 
+        {
+            try 
+            {
+                await _postService.DeleteReply(replyId, _userManager.GetUserId(User));
+                return RedirectToAction("Index", "Post", new { id = postId });
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return NotFound();
+            }
+        }
     }
 }
